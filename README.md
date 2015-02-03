@@ -1,7 +1,11 @@
-# MGT 645 Project
+# MGT 656 Project
 
-This is the starter project for MGT 645. You'll fork this
-code in order to get started with your project. 
+## Heroku App
+
+Deployed at:
+
+https://mgt-656-mightylake.herokuapp.com/
+
 
 ## Getting started
 
