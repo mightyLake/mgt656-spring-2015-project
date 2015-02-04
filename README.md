@@ -1,4 +1,5 @@
 [![Stories in Ready](https://badge.waffle.io/mightylake/mgt656-spring-2015-project.png?label=ready&title=Ready)](https://waffle.io/mightylake/mgt656-spring-2015-project)
+[![Stories in Ready](https://badge.waffle.io/mightylake/mgt656-spring-2015-project.png?label=ready&title=Ready)](https://waffle.io/mightylake/mgt656-spring-2015-project)
 # MGT 656 Project
 
 ## Heroku App
