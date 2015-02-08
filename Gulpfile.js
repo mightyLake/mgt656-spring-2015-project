@@ -44,7 +44,7 @@ gulp.task('default', ['bower', 'lint'], function () {
   nodemon({
       script: 'start-app.js',
       ext: 'js html',
-      ignore: ['node_modules/**', '.c9/*']
+      ignore: ['node_modules/**', '.c9/*', 'public/vendor/**']
     })
     .on('change', ['bower', 'lint'])
     .on('restart', function () {
