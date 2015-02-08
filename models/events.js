@@ -1,5 +1,7 @@
 'use strict';
 
+var _ = require('lodash');
+
 /**
  * An Array of all the events
  */
@@ -54,7 +56,14 @@ function getById (id) {
   return null;
 }
 
+function getUpcoming() {
+  return _.filter(allEvents, function (e) {
+    return e.date >= new Date();
+  });
+}
+
 module.exports = exports = {
   all: allEvents,
+  getUpcoming: getUpcoming,
   getById: getById
 };

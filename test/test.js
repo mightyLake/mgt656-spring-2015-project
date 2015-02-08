@@ -32,7 +32,7 @@ function setSite (testBlock) {
     PORT = '';
   }else{
     PORT = testBlock.parent.ctx.PORT || 3005;
-  };
+  }
   SITE = 'http://' + HOST + ':' + PORT;
 }
 
@@ -69,7 +69,7 @@ describe('The site, on all pages',function(){
     this.queryIsOk = function(selector, message){
       return function(browser){
         assert.ok(browser.query(selector), message + ' on page at ' + browser.location.pathname);
-      }
+      };
     };
   });
 
