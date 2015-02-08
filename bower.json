@@ -1,0 +1,20 @@
+{
+  "name": "mgt656-spring-2015-project",
+  "version": "0.0.0",
+  "homepage": "https://github.com/mightyLake/mgt656-spring-2015-project",
+  "authors": [
+    "David Hatch <dhatch387@gmail.com>"
+  ],
+  "license": "None",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.2"
+  }
+}

@@ -5,23 +5,34 @@
 
 'use strict';
 
+var fs = require('fs');
+
 var gulp = require('gulp');
 var nodemon = require('gulp-nodemon');
 var jshint = require('gulp-jshint');
+var mainBowerFiles = require('main-bower-files');
+var install = require('gulp-install');
 
 gulp.task('lint', function () {
-  gulp.src(['*.js', 'controllers/**/*.js', 'models/**/*.js', '!./node_modules/**', '!./.*'])
+  gulp.src(['*.js', 'controllers/**/*.js',
+            'models/**/*.js', '!./node_modules/**', '!./.*'])
     .pipe(jshint())
     .pipe(jshint.reporter('jshint-stylish'));
 });
 
-gulp.task('default', function () {
+// Compile the bower files.
+gulp.task('bower', function () {
+  gulp.src(mainBowerFiles(), { base : 'bower_components' })
+    .pipe(gulp.dest('public/vendor/'));
+});
+
+gulp.task('default', ['bower', 'lint'], function () {
   nodemon({
       script: 'start-app.js',
       ext: 'js html',
       ignore: ['node_modules/**', '.c9/*']
     })
-    .on('change', ['lint'])
+    .on('change', ['bower', 'lint'])
     .on('restart', function () {
       console.log('restarted!');
     });

@@ -1,33 +1,29 @@
 [![Stories in Ready](https://badge.waffle.io/mightylake/mgt656-spring-2015-project.png?label=ready&title=Ready)](https://waffle.io/mightylake/mgt656-spring-2015-project)
+
 # MGT 656 Project
-
-## Heroku App
-
-Deployed at:
-
-https://mgt-656-mightylake.herokuapp.com/
 
 
 ## Getting started
 
 For the following instructions, we assume that you are logged
-into the virtual machine you are using for MGT 645. 
+into the virtual machine you are using for MGT 656.
 
-To clone the repository, issue you'll use the following git command.
+Install the dependencies
 
-	git clone https://github.com/yale-mgt-656/mgt656-spring-2015-project.git
+```sh
+	$ npm install
+    $ bower install
+```
 
-Then, you can do 
+*Note:* [Bower](http://bower.io/) is a dependency manager for frontend packages
+(css, client-side js, etc...).
 
-	cd mgt656-project
-
-Then, you'll need to install the dependencies
-
-	npm install
 
 And, finally, you can run the code
 
+```
 	./node_modules/.bin/gulp
+```
 
 That will run the [nodemon](https://github.com/remy/nodemon)
 program, which is a nice way of running node and then restarting
@@ -45,13 +41,20 @@ tests.
 
 That will run all the tests in `test/tests.js`.
 
+## Heroku App
+
+Deployed at:
+
+https://mgt-656-mightylake.herokuapp.com/
+
+Continuously deployed off of the master branch.
 
 ## What we're using
 
 This application relies on a number of open source projects.
 Obviously, it is a [node.js](http://nodejs.org/) application.
 We are using the following components, which are built for node
-applications and written by people that have made them open 
+applications and written by people that have made them open
 source.
 
 * [express.js](http://expressjs.com/): Express is a minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications.
