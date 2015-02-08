@@ -7,7 +7,17 @@
     <p>Where: {{event.location}}</p>
     <p>With whom: {{event.attending}}</p>
     <p>Why: {{event.image}}</p>
-
+  </div>
+  
+  <div>
+      <p>Do you want to partake in our revelry? THEN RSVP!</p>
+      <form action="/events/RSVP">
+          <method="post"></method>
+          <div>
+              <label for="email">E-mail:</label>
+              <input type="email" id="email" />
+          </div>
+        </form>
   </div>
 
 {% endblock %}
