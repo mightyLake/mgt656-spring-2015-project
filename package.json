@@ -11,6 +11,7 @@
   "dependencies": {
     "body-parser": "^1.8.4",
     "express": "^4.9.5",
+    "lodash": "https://registry.npmjs.org/lodash/-/lodash-2.4.1.tgz",
     "morgan": "^1.3.2",
     "nunjucks": "^1.1.0",
     "strftime": "^0.8.2",
