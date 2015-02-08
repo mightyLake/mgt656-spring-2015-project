@@ -26,6 +26,20 @@ gulp.task('bower', function () {
     .pipe(gulp.dest('public/vendor/'));
 });
 
+gulp.task('debug', ['bower', 'lint'], function () {
+  nodemon({
+      script: 'start-app.js',
+      ext: 'js html',
+      nodeArgs: ['--debug'],
+      ignore: ['node_modules/**', '.c9/*'],
+      debug: true
+    })
+    .on('change', ['bower', 'lint'])
+    .on('restart', function () {
+      console.log('restarted!');
+    });
+});
+
 gulp.task('default', ['bower', 'lint'], function () {
   nodemon({
       script: 'start-app.js',
