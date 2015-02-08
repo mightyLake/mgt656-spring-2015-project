@@ -10,3 +10,16 @@ a {
 .form-errors {
 	color: red;
 }
+
+footer ul {
+    padding: 0 0;
+    list-style: none;
+}
+
+footer li {
+    display: inline-block;
+}
+
+footer li + li::before {
+    content: "| ";
+}
