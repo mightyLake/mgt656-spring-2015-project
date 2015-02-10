@@ -2,35 +2,29 @@
 
 {% block mainContent %}
 
-    <p>What: <a href='/events/{{event.id}}'>{{event.title}}</a></p>
-    <p>When: <time datetime="{{event.date}}">{{event.date|prettyDate}}</time></p>
-    <p>Where: {{event.location}}</p>
+
+    <p>What: <h1 id="title"><a href='/events/{{event.id}}'>{{event.title}}</a></h1></p>
+    <p>When: <span id="date" datetime="{{event.date}}">{{event.date|prettyDate}}</span></p>
+    <p>Where: <span id="location">{{event.location}}</span></p>
     <p>With whom: 
         {{event.attending.length}} attending so far
     </p>
       {% for person in event.attending %}
-        <ul>
+        <ul id="attendees">
             <li>
                 {{person}}
             </li>
         </ul>
     {% endfor %}
-    <p>Why: <img src="{{event.image}}" id="" alt=""></p>
+    <p>Why: <img id="image" src="{{event.image}}" id="" alt=""></p>
 
     <p>How: RSVP now to partake in the revelry!</p>
-      <form> 
-          <method="POST"></method>
-          <div>
-              <label for="email">E-mail:</label>
-              <input type="email" id="email" />
-              <pattern></pattern>
-          </div>
-          
-          <div class="button">
-              <button type="submit">RSVP</button>
-          </div>
-        </form>
-
+    
+    <form action="" method="POST">
+      Email: <input type="email" id="email" name="email"><br>
+      <input type="submit" value="Submit">
+    </form>
+        
 {% endblock %}
 
 {% block footer %}

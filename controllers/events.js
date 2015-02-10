@@ -189,7 +189,11 @@ function rsvp (request, response){
   }
 
   if(validator.isEmail(request.body.email)){
-    ev.attending.push(request.body.email);
+    var email=request.body.email;
+    var lcEmail=email.toLowerCase();
+    //my validator on the next line is not working
+    (lcEmail.contains, 'yale.edu');
+    ev.attending.push(lcEmail);
     response.redirect('/events/' + ev.id);
   }else{
     var contextData = {errors: [], event: ev};
