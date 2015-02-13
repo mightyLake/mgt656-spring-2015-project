@@ -184,24 +184,21 @@ function eventDetail (request, response) {
 
 function rsvp (request, response){
   var ev = events.getById(parseInt(request.params.id));
+  var contextData = {errors: [], event: ev};
+
   if (ev === null) {
     response.status(404).send('No such event');
   }
-
-  if(validator.isEmail(request.body.email)){
-    var email=request.body.email;
-    var lcEmail=email.toLowerCase();
-    //my validator on the next line is not working
-    (lcEmail.contains, 'yale.edu');
-    ev.attending.push(lcEmail);
-    response.redirect('/events/' + ev.id);
-  }else{
-    var contextData = {errors: [], event: ev};
+  if(!validator.isEmail(request.body.email) || request.body.email.toLowerCase().indexOf('@yale.edu') === -1){
     contextData.errors.push('Invalid email');
     response.render('event-detail.html', contextData);    
+  }else{
+    ev.attending.push(request.body.email.toLowerCase());
+    response.redirect('/events/' + ev.id);
   }
 
 }
+
 function api(request,response){
   var output = {events: []};
   var search = request.query.search;

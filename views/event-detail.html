@@ -18,6 +18,16 @@
     {% endfor %}
     <p>Why: <img id="image" src="{{event.image}}" id="" alt=""></p>
 
+    {% if errors %}
+    <div>
+      <ul class="form-errors">
+        {% for error in errors %}
+          <li>Invalid email: Only Yale emails may RSVP</li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+
     <p>How: RSVP now to partake in the revelry!</p>
     
     <form action="" method="POST">
