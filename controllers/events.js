@@ -2,6 +2,7 @@
 
 var events = require('../models/events');
 var validator = require('validator');
+var _       = require('lodash');
 
 // Date data that would be useful to you
 // completing the project These data are not
@@ -55,29 +56,81 @@ function newEvent(request, response){
  * our global list of events.
  */
 function saveEvent(request, response){
-  var contextData = {errors: []};
+  var contextData = {errors: []},
+      sanitizers  = {
+        'year' : validator.toInt,
+        'day'  : validator.toInt,
+        'month' : validator.toInt,
+        'hour' : validator.toInt,
+        'minute': validator.toInt
+      },
+      validators  = {
+        'The title should be less than 50 characters.' : [
+          'title',
+          _.partialRight(validator.isLength, 0, 49)],
+        'The image URL must start with http:// or https://.' : [
+          'image',
+          _.partialRight(validator.matches, /^http(s)?:\/\//)],
+        'The image extension must be .gif or .png.' : [
+            'image',
+          _.partialRight(validator.matches, /\.(gif|png)$/)],
+        'The location must be less than 50 characters.' : [
+          'location',
+          _.partialRight(validator.isLength, 0, 49)],
+        'The year must be between 2015 and 2016' : [
+          'year',
+          function (val) {
+            return val >= 2015 && val <= 2016;
+          }],
+        'The month must be between 0 and 11.' : [
+          'month',
+          function (val) {
+            return val >= 0 && val <= 11;
+          }],
+        'The hour must be between 0 and 23' : [
+          'hour',
+          function (val) {
+            return val >= 0 && val <= 23;
+          }],
+        'The minute must be 0 or 30.' : [
+          'minute',
+          function (val) {
+            return val === 0 || val === 30;
+          }]
+      };
 
-  if (validator.isLength(request.body.title, 5, 50) === false) {
-    contextData.errors.push('Your title should be between 5 and 100 letters.');
+  // Run sanitizers
+  for (var property in sanitizers) {
+    console.log('sanitize original property', property, request.body[property]);
+    request.body[property] = sanitizers[property](request.body[property]);
+    console.log('sanitized original property', property, request.body[property]);
   }
 
+  // Run validators
+  for (var err in validators) {
+    var errorMsg = err,
+        field    = validators[err][0],
+        validate = validators[err][1];
+    if (!validate(request.body[field])) {
+      console.log('validation failed for', field, errorMsg);
+      contextData.errors.push(errorMsg);
+    }
+  }
 
   if (contextData.errors.length === 0) {
     var newEvent = {
       title: request.body.title,
       location: request.body.location,
       image: request.body.image,
-      date: new Date(),
+      date: new Date(request.body.year,
+                     request.body.month,
+                     request.body.day),
       attending: [],
-      
       id: events.all.length
     };
     events.all.push(newEvent);
-    
     response.redirect('/events/'+newEvent.id);
-    
-    
-  }else{
+  } else {
     response.render('create-event.html', contextData);
   }
 }
