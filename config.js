@@ -24,6 +24,17 @@ module.exports = exports = function(yourApp){
     yourApp.use(logger('dev'));
   }
 
+  // Configure heap analytics
+  yourApp.locals.heap = {
+    id: '3104698097' // development id
+  };
+
+  if (process.env.NODE_ENV === 'production') {
+    // production id
+    yourApp.locals.heap.id = process.env.HEAP_ID;
+  }
+
+
   // Serve images, css, and client-side js about of the
   // directory named 'public'
   yourApp.use(express.static(path.join(__dirname, 'public')));

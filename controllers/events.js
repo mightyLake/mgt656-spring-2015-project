@@ -37,7 +37,8 @@ function listEvents(request, response) {
   var currentTime = new Date();
   var contextData = {
     'events': events.all,
-    'time': currentTime
+    'time': currentTime,
+    'rsvp': '', // Never show rsvp here (not running experiment)
   };
   response.render('event.html', contextData);
 }
