@@ -56,12 +56,22 @@
       </select>
     </div>
     
-    
+<!--    
   <div class="form-group">
     <label for="hour">Event hour:</label>
     <select name="hour" id="hour">
       {% for hour in allowedDateInfo.hours %}
         <option value = "{{hour}}">{{hour}}</option></option>
+      {% endfor %}
+    </select>
+  </div>
+--> 
+    
+      <div class="form-group">
+    <label for="hour">Event hour:</label>
+    <select name="hour" id="hour">
+      {% for hourNumber, hourName in allowedDateInfo.hours %}
+        <option value = "{{hourNumber}}">{{hourName}}</option></option>
       {% endfor %}
     </select>
   </div>
