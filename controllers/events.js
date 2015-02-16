@@ -177,7 +177,7 @@ function saveEvent(request, response){
 function eventDetail (request, response) {
   var ev = events.getById(parseInt(request.params.id));
   if (ev === null) {
-    response.status(404).send('No such event');
+    return response.status(404).send('No such event');
   }
   response.render('event-detail.html', {event: ev});
 }
@@ -187,7 +187,7 @@ function rsvp (request, response){
   var contextData = {errors: [], event: ev};
 
   if (ev === null) {
-    response.status(404).send('No such event');
+    return response.status(404).send('No such event');
   }
   if(!validator.isEmail(request.body.email) || request.body.email.toLowerCase().indexOf('@yale.edu') === -1){
     contextData.errors.push('Invalid email');
