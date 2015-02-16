@@ -138,9 +138,7 @@ function saveEvent(request, response){
 
   // Run sanitizers
   for (var property in sanitizers) {
-    console.log('sanitize original property', property, request.body[property]);
     request.body[property] = sanitizers[property](request.body[property]);
-    console.log('sanitized original property', property, request.body[property]);
   }
 
   // Run validators
@@ -149,7 +147,6 @@ function saveEvent(request, response){
         field    = validators[err][0],
         validate = validators[err][1];
     if (!validate(request.body[field])) {
-      console.log('validation failed for', field, errorMsg);
       contextData.errors.push(errorMsg);
     }
   }
