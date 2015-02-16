@@ -193,7 +193,7 @@ function rsvp (request, response){
     contextData.errors.push('Invalid email');
     response.render('event-detail.html', contextData);    
   }else{
-    ev.attending.push(request.body.email.toLowerCase());
+    ev.attending.push(request.body.email);
     response.redirect('/events/' + ev.id);
   }
 
