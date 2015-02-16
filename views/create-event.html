@@ -33,7 +33,7 @@
       <label for="year">Event year:</label>
       <select name="year" id="year">
         {% for year in allowedDateInfo.years %}
-          <option value = "{{year}}">{{year}}</option></option>
+          <option value = "{{year}}">{{year}}</option>
         {% endfor %}
       </select>
     </div>
@@ -42,7 +42,7 @@
       <label for="month">Event month:</label>
       <select name="month" id="month">
         {% for monthNumber, monthName in allowedDateInfo.months %}
-          <option value = "{{monthNumber}}">{{monthName}}</option></option>
+          <option value = "{{monthNumber}}">{{monthName}}</option>
         {% endfor %}
       </select>
     </div>
@@ -51,27 +51,16 @@
       <label for="day">Event day:</label>
       <select name="day" id="day">
         {% for day in allowedDateInfo.days %}
-          <option value = "{{day}}">{{day}}</option></option>
+          <option value = "{{day}}">{{day}}</option>
         {% endfor %}
       </select>
     </div>
     
-<!--    
   <div class="form-group">
     <label for="hour">Event hour:</label>
     <select name="hour" id="hour">
-      {% for hour in allowedDateInfo.hours %}
-        <option value = "{{hour}}">{{hour}}</option></option>
-      {% endfor %}
-    </select>
-  </div>
---> 
-    
-      <div class="form-group">
-    <label for="hour">Event hour:</label>
-    <select name="hour" id="hour">
       {% for hourNumber, hourName in allowedDateInfo.hours %}
-        <option value = "{{hourNumber}}">{{hourName}}</option></option>
+        <option value = "{{hourNumber}}">{{hourName}}</option>
       {% endfor %}
     </select>
   </div>
@@ -83,118 +72,11 @@
         <option value = "{{minute}}">{{minute}}</option></option>
       {% endfor %}
     </select>
-
-<!--
   </div>
-    <div class="form-group">
-      <label for="year">Event year:</label>
-      <select name="year" id="year">
-        <option value="2015" selected>2015</option> 
-        <option value="2016" >2016</option>
-       </select>
-    </div>
--->
-
-<!--    
-    <div class="form-group">
-      <label for="month">Event month:</label>
-      <select name="month">
-       <option value="0" selected>January</option> 
-       <option value="1" >February</option>
-       <option value="2" >March</option>
-       <option value="3" >April</option>
-       <option value="4" >May</option>
-       <option value="5" >June</option>
-       <option value="6" >July</option>
-       <option value="7" >August</option>
-       <option value="8" >September</option>
-       <option value="9" >October</option>
-       <option value="10" >November</option>
-       <option value="11" >December</option>
-      </select>
-    </div>
--->
-<!--
-    <div class="form-group">
-      <label for="day">Event day:</label>
-      <select name="day">
-        <option value="1" selected>01</option> 
-        <option value="2" >02</option>
-        <option value="3" >03</option>
-        <option value="4" >04</option>
-        <option value="5" >05</option>
-        <option value="6" >06</option>
-        <option value="7" >07</option>
-        <option value="8" >08</option>
-        <option value="9" >09</option>
-        <option value="10" >10</option>
-        <option value="11" >11</option>
-        <option value="12" >12</option>
-        <option value="13" >13</option>
-        <option value="14" >14</option>
-        <option value="15" >15</option>
-        <option value="16" >16</option>
-        <option value="17" >17</option>
-        <option value="18" >18</option>
-        <option value="19" >19</option>
-        <option value="20" >20</option>
-        <option value="21" >21</option>
-        <option value="22" >22</option>
-        <option value="23" >23</option>
-        <option value="24" >24</option>
-        <option value="25" >25</option>
-        <option value="26" >26</option>
-        <option value="27" >27</option>
-        <option value="28" >28</option>
-        <option value="29" >29</option>
-        <option value="30" >30</option>
-        <option value="31" >31</option>
-      </select>
-    </div>
--->
-<!--
-    <div class="form-group">
-      <label for="hour">Event hour:</label>
-      <select name="hour">
-        <option value="00" selected>00</option> 
-        <option value="01" >01</option>
-        <option value="02" >02</option>
-        <option value="03" >03</option>
-        <option value="04" >04</option>
-        <option value="05" >05</option>
-        <option value="06" >06</option>
-        <option value="07" >07</option>
-        <option value="08" >08</option>
-        <option value="09" >09</option>
-        <option value="10" >10</option>
-        <option value="11" >11</option>
-        <option value="12" >12</option>
-        <option value="13" >13</option>
-        <option value="14" >14</option>
-        <option value="15" >15</option>
-        <option value="16" >16</option>
-        <option value="17" >17</option>
-        <option value="18" >18</option>
-        <option value="19" >19</option>
-        <option value="20" >20</option>
-        <option value="21" >21</option>
-        <option value="22" >22</option>
-        <option value="23" >23</option>
-      </select>
-    </div>
--->
-
-<!--    
-    <div class="form-group">
-      <label for="minute">Event minute:</label>
-      <select name="minute" form="create-event">
-        <option value="00" selected>00</option> 
-        <option value="30" >30</option>
-      </select>
-    </div>
--->
-
+  
+  <div>
     <input type = "submit" id="submit" type="submit">
+  </div>
   </form>
   
 
