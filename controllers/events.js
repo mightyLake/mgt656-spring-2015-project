@@ -104,7 +104,7 @@ function saveEvent(request, response){
       validators  = {
         'The title should be less than 50 characters.' : [
           'title',
-          _.partialRight(validator.isLength, 0, 49)],
+          _.partialRight(validator.isLength, 1, 49)],
         'The image URL must start with http:// or https://.' : [
           'image',
           _.partialRight(validator.matches, /^http(s)?:\/\//)],
@@ -113,7 +113,7 @@ function saveEvent(request, response){
           _.partialRight(validator.matches, /\.(gif|png)$/)],
         'The location must be less than 50 characters.' : [
           'location',
-          _.partialRight(validator.isLength, 0, 49)],
+          _.partialRight(validator.isLength, 1, 49)],
         'The year must be between 2015 and 2016' : [
           'year',
           function (val) {
@@ -133,6 +133,11 @@ function saveEvent(request, response){
           'minute',
           function (val) {
             return val === 0 || val === 30;
+          }],
+        'The day must be between 1 and 31': [
+          'day',
+          function (val) {
+            return val <= 31 && val >= 1;
           }]
       };
 
