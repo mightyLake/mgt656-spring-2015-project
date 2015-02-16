@@ -34,6 +34,8 @@ module.exports = exports = function(yourApp){
     yourApp.locals.heap.id = process.env.HEAP_ID;
   }
 
+  yourApp.locals.NODE_ENV = process.env.NODE_ENV;
+
 
   // Serve images, css, and client-side js about of the
   // directory named 'public'
