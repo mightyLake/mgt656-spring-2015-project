@@ -29,10 +29,16 @@
     {% endif %}
 
     <p>How: RSVP now to partake in the revelry!</p>
-    
+
+  <div data-experiment='{{donateExperiment.name}}'
+      data-alternative='{{donateExperiment.alternative}}'>
+    <a class = 'donation' href="/event/brokenLink">And don't forget to {{donate}}!</a>
+  </div>
+
     <form action="" method="POST">
       Email: <input type="email" id="email" name="email"><br>
       <input type="submit" value="Submit">
     </form>
+
         
 {% endblock %}

@@ -3,11 +3,13 @@
 var events = require('../models/events');
 var validator = require('validator');
 var _       = require('lodash');
+var Experiment = require('../lib/experiment').Experiment;
 
 // Date data that would be useful to you
 // completing the project These data are not
 // used a first.
 //
+
 var allowedDateInfo = {
   months: {
     0: 'January',
@@ -83,7 +85,10 @@ function listEvents(request, response) {
  * Controller that renders a page for creating new events.
  */
 function newEvent(request, response){
-  var contextData = {allowedDateInfo: allowedDateInfo};
+
+  var contextData = {
+    allowedDateInfo: allowedDateInfo
+  };
   response.render('create-event.html', contextData);
 }
 
@@ -173,13 +178,29 @@ function saveEvent(request, response){
     response.render('create-event.html', contextData);
   }
 }
-
+/*
 function eventDetail (request, response) {
   var ev = events.getById(parseInt(request.params.id));
   if (ev === null) {
     return response.status(404).send('No such event');
   }
   response.render('event-detail.html', {event: ev});
+}
+*/
+function eventDetail (request, response) {
+  var ev = events.getById(parseInt(request.params.id));
+  var donateExperiment = new Experiment('donate'),
+  alternative    = donateExperiment.alternative();
+  
+  if (ev === null) {
+    return response.status(404).send('No such event');
+  }
+  var contextData={
+    event: ev,
+   'donate': alternative === 'A' ? 'donate' : 'support',
+   'donateExperiment': { alternative: alternative, name: donateExperiment.name }
+  }
+  response.render('event-detail.html', contextData);
 }
 
 function rsvp (request, response){
