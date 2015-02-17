@@ -39,7 +39,8 @@
     <script src='/vendor/bootstrap/dist/js/bootstrap.js'></script>
     <script>
       mixpanel.track("Home page", {
-          'document.referrer': document.referrer
+        'document.referrer': document.referrer,
+        'ip': '{{ipAddr}}'
         });
     </script>
 

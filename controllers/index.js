@@ -15,7 +15,8 @@ function index (request, response) {
     'tagline': 'You are doomed (just kidding).',
     'events': events.getUpcoming(),
     'rsvp': alternative === 'A' ? 'RSVP to ' : '',
-    'rsvpExperiment': { alternative: alternative, name: rsvpExperiment.name }
+    'rsvpExperiment': { alternative: alternative, name: rsvpExperiment.name },
+    'ipAddr': request.connection.remoteAddress
   };
   response.render('index.html', contextData);
 }
