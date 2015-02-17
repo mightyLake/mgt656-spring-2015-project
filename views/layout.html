@@ -38,11 +38,12 @@
     <script src='/vendor/jquery/dist/jquery.js'></script>
     <script src='/vendor/bootstrap/dist/js/bootstrap.js'></script>
     <script>
-      mixpanel.track("Home page", {
-        'document.referrer': document.referrer,
-        'ip': '{{ipAddr}}',
-        'address': 'host: {{ipAddr}}'
+      mixpanel.track("Page view", {
         });
+
+      mixpanel.register({
+        'upstream-address': '{{ipAddr}}',
+        'path': '{{path}}' });
     </script>
 
     <script>

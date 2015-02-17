@@ -32,8 +32,15 @@
 
   <div data-experiment='{{donateExperiment.name}}'
       data-alternative='{{donateExperiment.alternative}}'>
-    <a class = 'donation' href="/event/brokenLink">And don't forget to {{donate}}!</a>
+    <a class='donation' href="#">And don't forget to {{donate}}!</a>
   </div>
+
+  <script>
+      mixpanel.track_links("a.donation", "Event detail donation", {
+          'event-id': '{{ev.id}}',
+          'donation-text': '{{donate}}'
+      });
+  </script>
 
     <form action="" method="POST">
       Email: <input type="email" id="email" name="email"><br>
