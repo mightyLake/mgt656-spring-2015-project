@@ -40,7 +40,8 @@
     <script>
       mixpanel.track("Home page", {
         'document.referrer': document.referrer,
-        'ip': '{{ipAddr}}'
+        'ip': '{{ipAddr}}',
+        'address': 'host: {{ipAddr}}'
         });
     </script>
 
