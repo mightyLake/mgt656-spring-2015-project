@@ -13,6 +13,8 @@ var eventControllers = require('./controllers/events.js');
 // Create our express app
 var app = express();
 
+app.enable('trust proxy');
+
 // Configure it
 configure(app);
 
@@ -25,5 +27,17 @@ app.post('/events/new', eventControllers.saveEvent);
 app.get('/api/events', eventControllers.api);
 app.get('/events/:id', eventControllers.eventDetail);
 app.post('/events/:id', eventControllers.rsvp);
+
+// ip address middleware
+app.use(function (req, res, next) {
+  res.locals.ipAddr = req.ip;
+  next();
+});
+
+// path middleware
+app.use(function (req, res, next) {
+  res.locals.fullUrl = req.originalUrl;
+  next();
+});
 
 module.exports = app;
