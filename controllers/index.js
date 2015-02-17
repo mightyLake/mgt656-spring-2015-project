@@ -16,7 +16,11 @@ function index (request, response) {
     'events': events.getUpcoming(),
     'rsvp': alternative === 'A' ? 'RSVP to ' : '',
     'rsvpExperiment': { alternative: alternative, name: rsvpExperiment.name },
-    'ipAddr': request.connection.remoteAddress
+    'ipAddr': request.headers['x-forwarded-for'] ||
+           request.connection.remoteAddress ||
+                request.socket.remoteAddress ||
+                     request.connection.socket.remoteAddress
+
   };
   response.render('index.html', contextData);
 }
