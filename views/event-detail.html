@@ -34,5 +34,9 @@
       Email: <input type="email" id="email" name="email"><br>
       <input type="submit" value="Submit">
     </form>
+  <div data-experiment='{{donateExperiment.name}}'
+      data-alternative='{{donateExperiment.alternative}}'>
+    <a href="/event/brokenLink">And don't forget to {{donate}}!</a>
+  </div>
         
 {% endblock %}
