@@ -38,7 +38,9 @@
     <script src='/vendor/jquery/dist/jquery.js'></script>
     <script src='/vendor/bootstrap/dist/js/bootstrap.js'></script>
     <script>
-      mixpanel.track("Home page");
+      mixpanel.track("Home page", {
+          'document.referrer': document.referrer
+        });
     </script>
 
     <script>
