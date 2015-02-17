@@ -199,7 +199,7 @@ function eventDetail (request, response) {
     event: ev,
    'donate': alternative === 'A' ? 'donate' : 'support',
    'donateExperiment': { alternative: alternative, name: donateExperiment.name }
-  }
+  };
   response.render('event-detail.html', contextData);
 }
 
