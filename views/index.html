@@ -26,13 +26,14 @@
   </script>
 
   <script>
+      $(function () {
       mixpanel.track_links('li.event a', 'Event detail link', function (el) {
           return {
             'RSVP-alternative': '{{ rsvpExperiment.alternative }}',
             'showingRSVP': '{{ rsvpExperiment.alternative }}' === 'A',
             'event-id': $(el).parent().attr('id').split('-')[1]
           };
-      });
+  }); });
   </script>
 
   <p>

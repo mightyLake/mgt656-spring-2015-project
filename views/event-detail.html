@@ -35,17 +35,19 @@
       <a class='donate' href="#{{donate}}">And don't forget to {{donate}}!</a>
   </div>
 
-  <script>
-      mixpanel.track_links("a.donate", "Event detail donation", {
-          'event-id': '{{ev.id}}',
-          'donation-text': '{{donate}}'
-      });
-  </script>
 
     <form action="" method="POST">
       Email: <input type="email" id="email" name="email"><br>
       <input type="submit" value="Submit">
     </form>
 
+    <script>
+        $(function () {
+              mixpanel.track_links("a.donate", "Event detail donation", {
+                  'event-id': '{{ev.id}}',
+                  'donation-text': '{{donate}}'
+                  });
+              });
+  </script>
         
 {% endblock %}
