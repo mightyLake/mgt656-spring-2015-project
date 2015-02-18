@@ -90,13 +90,6 @@ input[type="submit"] {
   padding: 10px;
 }
 
-fragments {
-  padding: 50px;
-  font: 24px "Lucida Grande", Helvetica, Arial, sans-serif;
-  margin-top: 5;
-  color: white;
-}
-
 p {
   padding: 10px;
   font: 24px "Lucida Grande", Helvetica, Arial, sans-serif;
@@ -105,20 +98,6 @@ p {
 
 a {
   padding: 10px;
-  font: 24px "Lucida Grande", Helvetica, Arial, sans-serif;
-  color: red;
-  background-color:#efefef;
-}
-
-href {
-  padding: 50px;
-  font: 24px "Lucida Grande", Helvetica, Arial, sans-serif;
-  margin-top: 5;
-  color: green;
-}
-
-link {
-  padding: 20px;
   font: 24px "Lucida Grande", Helvetica, Arial, sans-serif;
   color: red;
   background-color:#efefef;
@@ -143,12 +122,5 @@ span {
   font: 18px "Lucida Grande", Helvetica, Arial, sans-serif;
   margin-top: 5;
   color: white;
-}
-
-events {
-  padding: 10px;
-  font: 24px "Lucida Grande", Helvetica, Arial, sans-serif;
-  margin-top: 5;
-  color: green;
 }
 
