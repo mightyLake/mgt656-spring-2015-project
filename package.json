@@ -7,7 +7,7 @@
     "postinstall": "./node_modules/bower/bin/bower install; ./node_modules/gulp/bin/gulp.js bower"
   },
   "engines": {
-    "node": "0.10.x"
+    "node": "0.10.35"
   },
   "dependencies": {
     "body-parser": "^1.8.4",
