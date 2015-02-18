@@ -1,19 +1,33 @@
+index {
+  text-align: center;
+  color: gray;
+}
+
+tagline {
+  text-align: center;
+  color: white;
+}
+
 body {
-  padding: 50px;
+  padding: 25px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  color: white;
+  background-color:#efefef;
 }
 
 a {
   color: #00B7FF;
 }
 
-.form-errors {
+ul class="form-errors" {
 	color: red;
+	font-size: 18;
 }
 
 footer ul {
     padding: 0 0;
     list-style: none;
+    text-align: center;
 }
 
 footer li {
@@ -23,3 +37,90 @@ footer li {
 footer li + li::before {
     content: "| ";
 }
+
+footer {
+  margin-top:2px;
+  padding-top:2px;
+  padding-bottom:2px;
+  background-color:#cecece;
+}
+
+header {
+  padding: 20px;
+  font: 12px "Lucida Grande", Helvetica, Arial, sans-serif;
+  margin-top: 5;
+  color: white;
+}
+
+h1 {
+    margin-top:10px;
+    margin-bottom:20px;
+    text-align:center;
+    color: red;
+}
+
+img {
+    display: block;
+    margin: 0 auto;
+}
+
+body {
+  text-align: left;
+  background: url("/Images/lakeAtNight.png");
+  background-size: cover;
+  background-position: center;
+  color: white;
+  font-family: helvetica;
+}
+
+p {
+  font-size: 22px;
+}
+
+input {
+  border: 0;
+  padding: 5px;
+  font-size: 18px;
+}
+
+input[type="submit"] {
+  background: red;
+  color: white;
+  display: inline-table;
+  padding: 10px;
+}
+
+p {
+  padding: 10px;
+  font: 24px "Lucida Grande", Helvetica, Arial, sans-serif;
+  color: white;
+}
+
+a {
+  padding: 10px;
+  font: 24px "Lucida Grande", Helvetica, Arial, sans-serif;
+  color: red;
+  background-color:#efefef;
+}
+
+body li {
+  padding: 10px;
+  font: 18px "Lucida Grande", Helvetica, Arial, sans-serif;
+  margin-top: 5;
+  color: white;
+}
+
+form {
+  padding: 10px;
+  font: 18px "Lucida Grande", Helvetica, Arial, sans-serif;
+  margin-top: 5;
+  color: black;
+}
+
+span {
+  padding: 10px;
+  font: 18px "Lucida Grande", Helvetica, Arial, sans-serif;
+  margin-top: 5;
+  color: white;
+}
+
